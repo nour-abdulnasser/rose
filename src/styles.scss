@@ -2,5 +2,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/***************** VARIABLES **************** */
+:root {
+  /********* Colors ******** */
+  --primary-color: #f82ba9; // brand color
+  --primary-color-rgb: 248, 43, 169; // opacity adapt
+  --secondary-color: #160e4b;
+  --tertiary-color: #8c52ff;
+  --quaternary-color: #39d8a3;
+  --light-primary-background-color: #feedf7;
+
+  --price-color: #f05454; // also color of out of stock
+  --out-of-stock-color: #f05454;
+  --hot-product-color: #00bfff;
+
+  --light-text-color: #757f95;
+  --rating-star-color: #fba707;
+
+  --card-hover-opacity: 0.7;
+}
