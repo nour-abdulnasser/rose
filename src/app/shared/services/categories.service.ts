@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { ApiEndpoint } from '../enums/api.endpoints';
+import { ApiEndpoint } from '../../core/enums/api.endpoints';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { CategoriesResponse } from '../interfaces/category';
+import { CategoriesResponse } from '../../core/interfaces/category';
 
 // TODO: implement adapters
 @Injectable({
