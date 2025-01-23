@@ -1,13 +1,22 @@
 export interface Category {
-  _id: string;
-  name: string;
-  slug: string;
-  image: string;
-  createdAt: string;
-  updatedAt: string;
-  productsCount: number;
+  _id?: string;
+  name?: string;
+  slug?: string;
+  image?: string;
+  createdAt?: string;
+  updatedAt?: string;
+  productsCount?: number;
 }
-export interface CategoriesResponse {
+// export interface CategoryResponse {
+//   _id: string;
+//   name: string;
+//   slug?: string;
+//   image: string;
+//   createdAt?: string;
+//   updatedAt?: string;
+//   productsCount?: number;
+// }
+export interface APICategoriesResponse {
   message: string;
   metadata: Metadata;
   categories: Category[];
