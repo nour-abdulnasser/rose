@@ -1,2 +1,9 @@
-<p>popular-items works!</p>
-<app-product-card></app-product-card>
+<section class="popular-items">
+  <div class="popular-items__header">
+    <h2 class="popular-items__header">Popular</h2>
+  </div>
+  @for (product of products; track $index) {
+
+  <app-product-card [product]="product"></app-product-card>
+  }
+</section>

@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { ProductCardComponent } from '../../shared/components/ui/product-card/product-card.component';
+import { PopularItemsComponent } from '../../features/pages/popular-items/popular-items.component';
+
 @Component({
   selector: 'app-home',
-  imports: [ProductCardComponent],
+  imports: [PopularItemsComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
