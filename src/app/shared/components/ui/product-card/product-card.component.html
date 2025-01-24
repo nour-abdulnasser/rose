@@ -1,7 +1,11 @@
-<div class="card">
-    <div class="card__image ">
-            <img class="rounded-20 " [src]="product().imgCover" alt="">
+<div class="product-card flex justify-center">
+  <div class="product-card__inner">
+    <div class="product-card__image overflow-hidden rounded-20 aspect-square">
+      <img class="rounded-20 w-full" [src]="product().imgCover" alt="" />
     </div>
-    <h3>{{product().title}}</h3>
-    <span>{{product().price}}</span>
+    <div class="product-card__details">
+      <h3>{{ product().title }}</h3>
+      <span>{{ product().price }}</span>
+    </div>
+  </div>
 </div>
