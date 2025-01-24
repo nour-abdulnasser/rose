@@ -4,11 +4,12 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import { Category, APICategoriesResponse } from '../interfaces/category';
 import { CategoriesAdapter } from '../adapters/categories.adapter';
+import { CategoriesAPI } from '../base/CategoriesAPI';
 // TODO: implement adapters
 @Injectable({
   providedIn: 'root',
 })
-export class CategoriesService {
+export class CategoriesService implements CategoriesAPI{
   constructor(
     private _HttpClient: HttpClient,
     private _CategoriesAdapter: CategoriesAdapter

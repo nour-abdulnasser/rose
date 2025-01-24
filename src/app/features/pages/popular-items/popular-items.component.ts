@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { CategoriesService } from '../../../core/services/categories.service';
 import { Category } from '../../../core/interfaces/category';
 import { map } from 'rxjs';
+import { ProductCardComponent } from '../../../shared/components/ui/product-card/product-card.component';
 
 @Component({
   selector: 'app-popular-items',
-  imports: [],
+  imports: [ProductCardComponent],
   templateUrl: './popular-items.component.html',
   styleUrl: './popular-items.component.scss',
 })
