@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal, computed } from '@angular/core';
 import { CategoriesService } from '../../../core/services/categories.service';
 import { Category } from '../../../core/interfaces/category';
 import { map } from 'rxjs';
@@ -13,8 +13,9 @@ import { ProductsService } from '../../../core/services/products.service';
   styleUrl: './popular-items.component.scss',
 })
 export class PopularItemsComponent implements OnInit {
-  categories: Category[] = [];
-  products: Product[] = [];
+  categories= signal<Category[]>([]);
+  topCategories= computed(()=> this.categories().slice(0,4))
+  products= signal<Product[]>([]);
 
   constructor(private _CategoriesService: CategoriesService, private _ProductsService:ProductsService) {}
 
@@ -23,9 +24,8 @@ export class PopularItemsComponent implements OnInit {
       .getAllCategories()
       // .pipe(map((categories: Category[]) => categories.slice(0, 4)))
       .subscribe({
-        next: (topCategories: Category[]) => {
-          this.categories = topCategories;
-          console.log('Top 4 categories:', this.categories);
+        next: (categories: Category[]) => {
+          this.categories.set(categories);
         },
         error: (error) => console.error('Error fetching categories:', error),
       });
@@ -33,7 +33,7 @@ export class PopularItemsComponent implements OnInit {
       .getAllProducts()
       .subscribe({
         next: (products: Product[]) => {
-          this.products = products;
+          this.products.set(products);
           console.log('All products:', this.products);
         },
         error: (error) => console.error('Error fetching prods:', error),

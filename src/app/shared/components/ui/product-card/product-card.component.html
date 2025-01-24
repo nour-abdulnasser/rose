@@ -1,11 +1,22 @@
 <div class="product-card flex justify-center">
   <div class="product-card__inner">
-    <div class="product-card__image overflow-hidden rounded-20 aspect-square">
-      <img class="rounded-20 w-full" [src]="product().imgCover" alt="" />
+    <div class="product-card__image mx-auto overflow-hidden rounded-20 aspect-square">
+      <img
+        class="rounded-20 w-full"
+        [src]="product().imgCover"
+        [alt]="product().title"
+      />
     </div>
-    <div class="product-card__details">
-      <h3>{{ product().title }}</h3>
-      <span>{{ product().price }}</span>
+    <div class="product-card__content mx-auto  grid grid-cols-2">
+      <div class="product-card__details">
+        <h3 [title]="product().title">{{ product().title | truncate : 3 }}</h3>
+        <span>{{ product().price | currency : "$" }}</span>
+      </div>
+      <div class="product-card__actions">
+        <svg class="text-white product-card__actions__add-to-cart">
+            <use href="/icons/fb-shopping-bag.svg#icon"></use>
+          </svg>
+      </div>
     </div>
   </div>
 </div>
