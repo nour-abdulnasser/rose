@@ -1,20 +1,27 @@
 <section class="popular-items px-80">
-  <div class="popular-items__header flex justify-between ">
-    <h2 class="popular-items__header font-bold text-3xl">Popular Items</h2>
+  <div class="popular-items__header mb-6 flex justify-between">
+    <h2 class="popular-items__header__title font-bold text-3xl mb-6">
+      Popular Items
+    </h2>
     <div class="top-categories flex">
       <ul class="flex">
         @for (category of topCategories(); track $index) {
         <li
-          class="top-categories__item text-xl ms-5 font-normal"
+          class="top-categories__item text-xl ms-5 font-normal cursor-pointer hover:text-opacity-75"
+          [class.top-categories__item--active]="
+            selectedCategory() === category._id
+          "
           (click)="getCategoryItems(category._id ?? '')"
         >
-          {{ category.name | titlecase}}
+          {{ category.name | titlecase }}
         </li>
         }
       </ul>
     </div>
   </div>
-  <div class="popular-items__products grid grid-cols-4 sm:grid-cols-4">
+  @if (filteredProducts().length) {
+
+  <div class="popular-items__products grid grid-cols-4 sm:grid-cols-4 gap-x-6">
     @for (product of filteredProducts(); track $index) {
     <app-product-card
       class="flex justify-center"
@@ -22,4 +29,19 @@
     ></app-product-card>
     }
   </div>
+  } @else {
+
+  <div
+    class="empty-overlay w-full text-4xl h-full mx-auto flex flex-col justify-center items-center rounded-b-xl h-full"
+  >
+    <span class="text-my-secondary font-bold my-5">
+      No products in this category.
+    </span>
+    <button class="bg-primary  text-white px-3 py-1 font-normal flex justify-between items-center">
+      <span>Explore others</span>
+      <span class="flex items-center"><img src="/icons/arrow.svg" alt="" /></span>
+    </button>
+  </div>
+
+  }
 </section>

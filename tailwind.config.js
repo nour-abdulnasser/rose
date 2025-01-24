@@ -6,6 +6,8 @@ module.exports = {
       colors: {
         price: "var(--price-color)",
         tertiary: "var(--tertiary-color)",
+        primary: "var(--primary-color)",
+        "my-secondary": "var(--my-secondary-color)",
       },
       borderRadius: {
         20: "20px",
