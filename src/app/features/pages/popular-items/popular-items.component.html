@@ -1,14 +1,14 @@
 <section class="popular-items px-80">
   <div class="popular-items__header flex justify-between ">
-    <h2 class="popular-items__header">Popular Items</h2>
+    <h2 class="popular-items__header font-bold text-3xl">Popular Items</h2>
     <div class="top-categories flex">
       <ul class="flex">
         @for (category of topCategories(); track $index) {
         <li
-          class="top-categories__item"
+          class="top-categories__item text-xl ms-5 font-normal"
           (click)="getCategoryItems(category._id ?? '')"
         >
-          {{ category.name }}
+          {{ category.name | titlecase}}
         </li>
         }
       </ul>

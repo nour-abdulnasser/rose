@@ -9,7 +9,7 @@
     </div>
     <div class="product-card__content mx-auto  grid grid-cols-2">
       <div class="product-card__details">
-        <h3 class="font-semibold" [title]="product().title">{{ product().title | truncate : 3 }}</h3>
+        <h3 class="font-semibold" [title]="product().title">{{ (product().title | truncate : 3) | titlecase}}</h3>
         <span class="text-price font-medium">{{ product().price | currency : "$" }}</span>
       </div>
       <div class="product-card__actions bg-tertiary">

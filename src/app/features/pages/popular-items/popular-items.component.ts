@@ -5,19 +5,26 @@ import { map } from 'rxjs';
 import { ProductCardComponent } from '../../../shared/components/ui/product-card/product-card.component';
 import { Product } from '../../../core/interfaces/product';
 import { ProductsService } from '../../../core/services/products.service';
+import { TitleCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-popular-items',
-  imports: [ProductCardComponent],
+  imports: [ProductCardComponent, TitleCasePipe],
   templateUrl: './popular-items.component.html',
   styleUrl: './popular-items.component.scss',
 })
 export class PopularItemsComponent implements OnInit {
-  selectedCategory = signal<string>('')
+  selectedCategory = signal<string>('');
   categories = signal<Category[]>([]);
   topCategories = computed(() => this.categories().slice(0, 4));
   products = signal<Product[]>([]);
-  filteredProducts = signal<Product[]>([]); 
+  filteredProducts = computed(() => {
+    return this.selectedCategory().length
+      ? this.products().filter(
+          (prod) => prod.category === this.selectedCategory()
+        )
+      : this.products();
+  });
   constructor(
     private _CategoriesService: CategoriesService,
     private _ProductsService: ProductsService
@@ -40,20 +47,10 @@ export class PopularItemsComponent implements OnInit {
       },
       error: (error) => console.error('Error fetching prods:', error),
     });
-
   }
 
   getCategoryItems(categoryId: string) {
     // Filter the existing products, no extra API call..
-    console.log(categoryId);
-    console.log(this.products());
-    
-    const filteredProducts = this.products().filter(
-      (prod:Product) => prod.category === categoryId
-    );
-    console.log(filteredProducts);
-    
-    this.filteredProducts.set(filteredProducts);
-
+    this.selectedCategory.set(categoryId);
   }
 }
