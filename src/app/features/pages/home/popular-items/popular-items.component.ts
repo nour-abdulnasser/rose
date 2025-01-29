@@ -1,10 +1,10 @@
 import { Component, OnInit, signal, computed, OnDestroy } from '@angular/core';
-import { CategoriesService } from '../../../core/services/categories.service';
-import { Category } from '../../../core/interfaces/category';
+import { CategoriesService } from '../../../../core/services/categories.service';
+import { Category } from '../../../../core/interfaces/category';
 import { map, Subject, takeUntil } from 'rxjs';
-import { ProductCardComponent } from '../../../shared/components/ui/product-card/product-card.component';
-import { Product } from '../../../core/interfaces/product';
-import { ProductsService } from '../../../core/services/products.service';
+import { ProductCardComponent } from '../../../../shared/components/ui/product-card/product-card.component';
+import { Product } from '../../../../core/interfaces/product';
+import { ProductsService } from '../../../../core/services/products.service';
 import { TitleCasePipe } from '@angular/common';
 
 @Component({
