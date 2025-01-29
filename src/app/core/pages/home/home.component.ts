@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PopularItemsComponent } from '../../features/pages/popular-items/popular-items.component';
+import { PopularItemsComponent } from '../../../features/components/popular-items/popular-items.component';
 
 @Component({
   selector: 'app-home',
