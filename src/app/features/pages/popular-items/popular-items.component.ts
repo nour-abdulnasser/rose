@@ -26,12 +26,12 @@ export class PopularItemsComponent implements OnInit {
       : this.products();
   });
   constructor(
-    private _CategoriesService: CategoriesService,
-    private _ProductsService: ProductsService
+    private _categoriesService: CategoriesService,
+    private _productsService: ProductsService
   ) {}
 
   ngOnInit() {
-    this._CategoriesService
+    this._categoriesService
       .getAllCategories()
       // .pipe(map((categories: Category[]) => categories.slice(0, 4)))
       .subscribe({
@@ -40,7 +40,7 @@ export class PopularItemsComponent implements OnInit {
         },
         error: (error) => console.error('Error fetching categories:', error),
       });
-    this._ProductsService.getAllProducts().subscribe({
+    this._productsService.getAllProducts().subscribe({
       next: (products: Product[]) => {
         this.products.set(products);
         console.log('All products:', this.products());

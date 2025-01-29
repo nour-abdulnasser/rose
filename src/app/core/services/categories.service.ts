@@ -11,16 +11,16 @@ import { CategoriesAPI } from '../base/CategoriesAPI';
 })
 export class CategoriesService implements CategoriesAPI{
   constructor(
-    private _HttpClient: HttpClient,
-    private _CategoriesAdapter: CategoriesAdapter
+    private _httpClient: HttpClient,
+    private _categoriesAdapter: CategoriesAdapter
   ) {}
 
   getAllCategories(): Observable<Category[]> {
-    return this._HttpClient
+    return this._httpClient
       .get<APICategoriesResponse>(ApiEndpoint.CATEGORIES)
       .pipe(
         map((res: APICategoriesResponse) =>
-          this._CategoriesAdapter.CategoriesAdapter(res)
+          this._categoriesAdapter.CategoriesAdapter(res)
         )
       );
   }
