@@ -1,10 +1,10 @@
-import { Component, OnInit, signal, computed } from '@angular/core';
-import { CategoriesService } from '../../../core/services/categories.service';
-import { Category } from '../../../core/interfaces/category';
-import { map } from 'rxjs';
-import { ProductCardComponent } from '../../../shared/components/ui/product-card/product-card.component';
-import { Product } from '../../../core/interfaces/product';
-import { ProductsService } from '../../../core/services/products.service';
+import { Component, OnInit, signal, computed, OnDestroy } from '@angular/core';
+import { CategoriesService } from '../../../../../core/services/categories.service';
+import { Category } from '../../../../../core/interfaces/category';
+import { map, Subject, takeUntil } from 'rxjs';
+import { ProductCardComponent } from '../../../../../shared/components/ui/product-card/product-card.component';
+import { Product } from '../../../../../core/interfaces/product';
+import { ProductsService } from '../../../../../core/services/products.service';
 import { TitleCasePipe } from '@angular/common';
 
 @Component({
@@ -13,7 +13,15 @@ import { TitleCasePipe } from '@angular/common';
   templateUrl: './popular-items.component.html',
   styleUrl: './popular-items.component.scss',
 })
-export class PopularItemsComponent implements OnInit {
+export class PopularItemsComponent implements OnInit, OnDestroy {
+
+/**
+ * Pattern for cleanup
+ */
+// 
+// destroy subject
+private destroy$ = new Subject<void>();
+
   selectedCategory = signal<string>('');
   categories = signal<Category[]>([]);
   topCategories = computed(() => this.categories().slice(0, 4));
@@ -26,13 +34,15 @@ export class PopularItemsComponent implements OnInit {
       : this.products();
   });
   constructor(
-    private _CategoriesService: CategoriesService,
-    private _ProductsService: ProductsService
+    private _categoriesService: CategoriesService,
+    private _productsService: ProductsService
   ) {}
 
   ngOnInit() {
-    this._CategoriesService
+    this._categoriesService
       .getAllCategories()
+      // subscription prep for cleanup
+      .pipe(takeUntil(this.destroy$))
       // .pipe(map((categories: Category[]) => categories.slice(0, 4)))
       .subscribe({
         next: (categories: Category[]) => {
@@ -40,7 +50,7 @@ export class PopularItemsComponent implements OnInit {
         },
         error: (error) => console.error('Error fetching categories:', error),
       });
-    this._ProductsService.getAllProducts().subscribe({
+    this._productsService.getAllProducts() .pipe(takeUntil(this.destroy$)).subscribe({
       next: (products: Product[]) => {
         this.products.set(products);
         console.log('All products:', this.products());
@@ -52,5 +62,11 @@ export class PopularItemsComponent implements OnInit {
   getCategoryItems(categoryId: string) {
     // Filter the existing products, no extra API call..
     this.selectedCategory.set(categoryId);
+  }
+
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }
