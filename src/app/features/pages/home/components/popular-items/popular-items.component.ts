@@ -1,10 +1,10 @@
 import { Component, OnInit, signal, computed, OnDestroy } from '@angular/core';
-import { CategoriesService } from '../../../../core/services/categories.service';
-import { Category } from '../../../../core/interfaces/category';
+import { CategoriesService } from '../../../../../core/services/categories.service';
+import { Category } from '../../../../../core/interfaces/category';
 import { map, Subject, takeUntil } from 'rxjs';
-import { ProductCardComponent } from '../../../../shared/components/ui/product-card/product-card.component';
-import { Product } from '../../../../core/interfaces/product';
-import { ProductsService } from '../../../../core/services/products.service';
+import { ProductCardComponent } from '../../../../../shared/components/ui/product-card/product-card.component';
+import { Product } from '../../../../../core/interfaces/product';
+import { ProductsService } from '../../../../../core/services/products.service';
 import { TitleCasePipe } from '@angular/common';
 
 @Component({
@@ -14,13 +14,12 @@ import { TitleCasePipe } from '@angular/common';
   styleUrl: './popular-items.component.scss',
 })
 export class PopularItemsComponent implements OnInit, OnDestroy {
-
-/**
- * Pattern for cleanup
- */
-// 
-// destroy subject
-private destroy$ = new Subject<void>();
+  /**
+   * Pattern for cleanup
+   */
+  //
+  // destroy subject
+  private destroy$ = new Subject<void>();
 
   selectedCategory = signal<string>('');
   categories = signal<Category[]>([]);
@@ -50,20 +49,22 @@ private destroy$ = new Subject<void>();
         },
         error: (error) => console.error('Error fetching categories:', error),
       });
-    this._productsService.getAllProducts() .pipe(takeUntil(this.destroy$)).subscribe({
-      next: (products: Product[]) => {
-        this.products.set(products);
-        console.log('All products:', this.products());
-      },
-      error: (error) => console.error('Error fetching prods:', error),
-    });
+    this._productsService
+      .getAllProducts()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe({
+        next: (products: Product[]) => {
+          this.products.set(products);
+          console.log('All products:', this.products());
+        },
+        error: (error) => console.error('Error fetching prods:', error),
+      });
   }
 
   getCategoryItems(categoryId: string) {
     // Filter the existing products, no extra API call..
     this.selectedCategory.set(categoryId);
   }
-
 
   ngOnDestroy() {
     this.destroy$.next();
