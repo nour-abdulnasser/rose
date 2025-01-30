@@ -11,16 +11,16 @@ import { ProductsAdapter } from '../adapters/products.adapter';
 })
 export class ProductsService implements ProductsAPI {
   constructor(
-    private _HttpClient: HttpClient,
-    private _ProductsAdapter: ProductsAdapter
+    private _httpClient: HttpClient,
+    private _productsAdapter: ProductsAdapter
   ) {}
 
   getAllProducts(): Observable<Product[]> {
-    return this._HttpClient
+    return this._httpClient
       .get<APIProductsResponse>(ApiEndpoint.PRODUCTS)
       .pipe(
         map((res: APIProductsResponse) =>
-          this._ProductsAdapter.ProductsAdapter(res)
+          this._productsAdapter.ProductsAdapter(res)
         )
       );
   }
