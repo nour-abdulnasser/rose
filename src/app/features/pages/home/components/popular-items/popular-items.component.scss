@@ -15,30 +15,30 @@
                 }
             }
         }
-        &__title{
-            position: relative;
-            z-index: 1;
-            &::before{
-                content: '';
-                position: absolute;
-                bottom: -3px;
-                height: 2px;
-                width: 53px;
-                background-color: var(--primary-color);
-            }
-            &::after{
-                content: '';
-                position: absolute;
-                left: 0px;
-                z-index: -1;
-                bottom: -3px;
-                height: 17px;
-                width: 136px;
-                background-color: var(--light-primary-background-color);
-                border-top-right-radius: 20px;
-                border-bottom-right-radius: 20px;
-            }
-        }
+        // &__title{
+        //     position: relative;
+        //     z-index: 1;
+        //     &::before{
+        //         content: '';
+        //         position: absolute;
+        //         bottom: -3px;
+        //         height: 2px;
+        //         width: 53px;
+        //         background-color: var(--primary-color);
+        //     }
+        //     &::after{
+        //         content: '';
+        //         position: absolute;
+        //         left: 0px;
+        //         z-index: -1;
+        //         bottom: -3px;
+        //         height: 17px;
+        //         width: 136px;
+        //         background-color: var(--light-primary-background-color);
+        //         border-top-right-radius: 20px;
+        //         border-bottom-right-radius: 20px;
+        //     }
+        // }
 
     }
 }
