@@ -1,0 +1,133 @@
+:host {
+  padding: 2rem 0;
+}
+
+:host ::ng-deep {
+  owl-carousel-o {
+    .owl-theme {
+      // تخصيص أزرار التنقل
+      .owl-nav {
+        position: absolute !important;
+        top: 50% !important;
+        width: 100%;
+        transform: translateY(-50%);
+        display: flex;
+        justify-content: space-between;
+
+        .owl-prev,
+        .owl-next {
+          width: 40px;
+          height: 40px;
+          background-color: #f82ba9;
+          border-radius: 50%;
+          color: white;
+          font-size: 16px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-shadow: var(--box-shadow);
+          transition: background-color 0.3s ease, color 0.3s ease;
+
+          &:hover {
+            background-color: #d11a85;
+            color: white;
+          }
+        }
+      }
+
+      // تخصيص النقاط
+      .owl-dots {
+        text-align: center;
+        margin-top: 1rem;
+        position: absolute;
+        bottom: 25px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        .owl-dot {
+          span {
+            width: 10px;
+            height: 10px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            margin: 0 5px;
+            transition: all 0.3s ease;
+          }
+
+          &.active {
+            span {
+              width: 24px;
+              background-color: var(--primary-color);
+              border-radius: 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// تصميم السلايدر
+.slider {
+  width: 50%;
+  margin: 0 auto;
+  position: relative;
+  right: -10%; /* تحريك السلايدر إلى اليمين */
+}
+
+// تصميم البطاقة
+.product-card {
+  position: relative;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  margin: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .images {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .badges {
+    display: flex;
+    position: relative;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 10;
+
+    .badge {
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: bold;
+      text-transform: uppercase;
+      box-shadow: var(--box-shadow);
+      background-color: rgba(0, 0, 0, 0.7);
+      color: #fff;
+
+      &.badge-new {
+        background-color: var(--badge-new-color);
+      }
+
+      &.badge-hot {
+        background-color: var(--badge-hot-color);
+      }
+
+      &.badge-out-of-stock {
+        background-color: var(--badge-out-of-stock-color);
+      }
+    }
+  }
+}
