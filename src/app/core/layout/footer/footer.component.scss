@@ -1,33 +1,28 @@
-.footer{
-  background-image: url('/images/Footer.png');
-    height: 300px;
-}
-.discount-number{
-    color: var(--primary-color);
-}
-.subscribe-container{
+.footer {
+  background-image: url("/images/Footer.png");
+  height: 300px;
+
+  .subscribe-container {
     position: relative;
+    .subscribeInput {
+      border: none;
+      border-radius: 9999px;
+      outline: none;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+    .subscribeButton {
+      position: absolute;
+      right: 30%;
+      background-color: var(--primary-color);
+      color: #fff;
+      border: none;
+      border-radius: 9999px;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease;
+      &:hover {
+        background-color: var(--tertiary-color);
+      }
+    }
+  }
 }
-.subscribeInput {
-    border: none;
-    border-radius: 9999px; 
-    outline: none; 
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); 
-  }
-  
-  .subscribeButton {
-    position: absolute;
-    right: 30%;
-    background-color: var(--primary-color); 
-    color: #fff;
-    border: none;
-    border-radius: 9999px; 
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
-    transition: background-color 0.3s ease;
-  }
-  
-  .subscribeButton:hover {
-    background-color: var(--tertiary-color); 
-  }
-  
