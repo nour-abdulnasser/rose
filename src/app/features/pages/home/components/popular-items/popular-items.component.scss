@@ -1,54 +1,28 @@
-.popular-items{
-    &__header{
-        .top-categories__item{
-            &--active{
-                position: relative;
-                color: var(--primary-color);
-                &::before{
-                    content: '';
-                    position: absolute;
-                    top: 1.6rem;
-                    height: 3px;
-                    width: 100%;
-                    background-color: var(--primary-color);
-
-                }
-            }
+.popular-items {
+  &__header {
+    .top-categories__item {
+      &--active {
+        position: relative;
+        color: var(--primary-color);
+        &::before {
+          content: "";
+          position: absolute;
+          top: 1.6rem;
+          height: 3px;
+          width: 100%;
+          background-color: var(--primary-color);
         }
-        // &__title{
-        //     position: relative;
-        //     z-index: 1;
-        //     &::before{
-        //         content: '';
-        //         position: absolute;
-        //         bottom: -3px;
-        //         height: 2px;
-        //         width: 53px;
-        //         background-color: var(--primary-color);
-        //     }
-        //     &::after{
-        //         content: '';
-        //         position: absolute;
-        //         left: 0px;
-        //         z-index: -1;
-        //         bottom: -3px;
-        //         height: 17px;
-        //         width: 136px;
-        //         background-color: var(--light-primary-background-color);
-        //         border-top-right-radius: 20px;
-        //         border-bottom-right-radius: 20px;
-        //     }
-        // }
-
+      }
     }
+  }
 }
 
-.empty-overlay{
-    border: 2px dashed var(--my-secondary-color);
-    border-radius: 20px;
-    padding: 80px;
-    button{
-        border-radius: 8px;
-        font-size: 1.5rem;
-    }
+.empty-overlay {
+  border: 2px dashed var(--my-secondary-color);
+  border-radius: 20px;
+  padding: 80px;
+  button {
+    border-radius: 8px;
+    font-size: 1.5rem;
+  }
 }
