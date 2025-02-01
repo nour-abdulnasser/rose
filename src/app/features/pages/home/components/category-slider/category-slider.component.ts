@@ -14,8 +14,7 @@ import { CategoryCardComponent } from '../../../../../shared/components/ui/categ
 })
 export class CategorySliderComponent implements OnInit, OnDestroy {
   categories = signal<Category[]>([]);
-  // categories: Category[] = [];
-  destroy$ = new Subject<any>();
+  private destroy$ = new Subject<void>();
 
   constructor(private _categoriesService: CategoriesService) {}
 
@@ -27,8 +26,6 @@ export class CategorySliderComponent implements OnInit, OnDestroy {
         next: (res) => {
           this.categories.set(res);
           console.log('catergories from slider', this.categories());
-          // this.categories = res;
-          // console.log('catergories from slider', this.categories);
         },
         error: (err) => {
           console.error('Error from slider', err);
@@ -48,11 +45,8 @@ export class CategorySliderComponent implements OnInit, OnDestroy {
     autoplaySpeed: 10000,
     slideTransition: 'linear',
     center: true,
-    
-    margin:30,
-    
-    // autoplayHoverPause: true,
-    // navText: ['', ''],
+
+    margin: 30,
     responsive: {
       0: {
         items: 2,
@@ -70,5 +64,8 @@ export class CategorySliderComponent implements OnInit, OnDestroy {
     nav: false,
   };
 
-  ngOnDestroy(): void {}
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
 }
