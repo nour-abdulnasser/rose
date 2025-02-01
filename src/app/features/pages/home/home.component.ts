@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { PopularItemsComponent } from './components/popular-items/popular-items.component';
 import { SliderComponent } from "../../../shared/components/ui/slider/slider.component";
+import { BestSellerComponent } from "./components/best-seller/best-seller.component";
 
 @Component({
   selector: 'app-home',
-  imports: [PopularItemsComponent, SliderComponent],
+  imports: [PopularItemsComponent, BestSellerComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

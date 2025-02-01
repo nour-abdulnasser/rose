@@ -15,9 +15,9 @@ export class BestSellerAdapter {
       priceAfterDiscount: resItem.priceAfterDiscount,
       imgCover: resItem.imgCover,
       category: resItem.category,
-      isNew: this.isNewProduct(resItem.createdAt),
-      isHot: this.isHotProduct(resItem.sold),
-      outOfStock: this.isOutOfStock(resItem.quantity),
+      isNew: this.isNewProduct(resItem.createdAt), // Check if product is new
+      isHot: this.isHotProduct(resItem.sold), // Check if product is hot
+      outOfStock: this.isOutOfStock(resItem.quantity), // Check if product is out of stock
       originalPrice: resItem.price,
       discountedPrice: resItem.priceAfterDiscount,
     }));
@@ -27,16 +27,16 @@ export class BestSellerAdapter {
     const createdDate = new Date(createdAt);
     const currentDate = new Date();
     const monthAgo = new Date();
-    monthAgo.setMonth(monthAgo.getMonth() - 1); // مقارنة بآخر شهر
+    monthAgo.setMonth(monthAgo.getMonth() - 1); // Product is new if created within the last month
 
     return createdDate > monthAgo && createdDate <= currentDate;
   }
 
   private isHotProduct(sold: number): boolean {
-    return sold >= 50; // أي منتج بيع أكثر من 50 مرة يعتبر "Hot"
+    return sold >= 50; // Product is hot if sold 50 or more times
   }
 
   private isOutOfStock(quantity: number): boolean {
-    return quantity <= 0; // إذا كان المخزون صفر أو أقل، فهو غير متوفر
+    return quantity <= 0; // Product is out of stock if quantity is 0 or less
   }
 }

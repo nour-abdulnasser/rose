@@ -11,7 +11,7 @@ import { ProductCardComponent } from '../product-card/product-card.component';
   standalone: true,
   imports: [CommonModule, CarouselModule, ProductCardComponent], // تأكد من استيراد جميع الوحدات
   templateUrl: './slider.component.html',
-  styleUrls: ['./slider.component.css']
+  styleUrls: ['./slider.component.scss']
 })
 export class SliderComponent implements OnInit {
   @ViewChild(CarouselComponent) owlCarousel!: CarouselComponent;
@@ -24,8 +24,7 @@ export class SliderComponent implements OnInit {
     nav: true,
     dots: false,
     autoplay: true,
-    autoplayTimeout: 5000,
-    autoplayHoverPause: true,
+    autoplayTimeout: 2000,
     responsive: {
       0: { items: 1 },
       600: { items: 3 },
