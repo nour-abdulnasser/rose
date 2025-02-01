@@ -1,15 +1,11 @@
-<div class="category-slider">
-  <!-- @if(categories().length){ -->
-
+<div class="category-slider max-h-full my-3">
   <owl-carousel-o [options]="customOptions">
     <ng-container>
       @for (category of categories(); track $index) {
-
-      <ng-template carouselSlide>
-        <div>{{ category.name | titlecase }}</div>
+      <ng-template class="max-h-full category__slider__slide" carouselSlide>
+        <app-category-card class="" [category]="category"></app-category-card>
       </ng-template>
       }
     </ng-container>
   </owl-carousel-o>
-  <!-- } -->
 </div>

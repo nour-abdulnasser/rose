@@ -12,6 +12,7 @@ export class CategoriesAdapter {
       _id: resItem._id,
       name: resItem.name,
       image: resItem.image,
+      productsCount: resItem.productsCount,
     }));
   }
 }
