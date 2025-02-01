@@ -3,12 +3,11 @@ import { CategoriesService } from '../../../../../core/services/categories.servi
 import { Category } from '../../../../../core/interfaces/category';
 import { Subject, takeUntil } from 'rxjs';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
-import { TitleCasePipe } from '@angular/common';
 import { CategoryCardComponent } from '../../../../../shared/components/ui/category-card/category-card.component';
 
 @Component({
   selector: 'app-category-slider',
-  imports: [CarouselModule, TitleCasePipe, CategoryCardComponent],
+  imports: [CarouselModule, CategoryCardComponent],
   templateUrl: './category-slider.component.html',
   styleUrl: './category-slider.component.scss',
 })
