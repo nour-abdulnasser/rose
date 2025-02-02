@@ -20,9 +20,7 @@
             "outputPath": "dist/rose",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -36,9 +34,15 @@
               "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css",
               "./node_modules/@fortawesome/fontawesome-free/css/all.min.css",
               "@angular/material/prebuilt-themes/rose-red.css",
+              "node_modules/owl.carousel/dist/assets/owl.carousel.min.css",
+              "node_modules/owl.carousel/dist/assets/owl.theme.default.min.css",
               "src/styles.scss"
             ],
-            "scripts": ["node_modules/flowbite/dist/flowbite.min.js"]
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/owl.carousel/dist/owl.carousel.min.js",
+              "node_modules/flowbite/dist/flowbite.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -82,10 +86,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -103,5 +104,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "2e1beb6c-ffaf-4e4f-b3d9-12949fd27b37"
   }
 }
