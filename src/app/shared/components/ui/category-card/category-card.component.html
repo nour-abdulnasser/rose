@@ -1,0 +1,13 @@
+<div class="category-card bg-primary-light gap-3 rounded-20 p-4 flex flex-col md:grid md:grid-cols-3 max-w-full">
+  <div class="category__icon flex bg-primary rounded-full p-3 col-span-1 flex justify-center items-center">
+    <img class="stroke w-full" [src]="category().image" [alt]="category().name" />
+  </div>
+  <div class="category__card__content col-span-2 flex items-start flex-col justify-center h-full">
+    <p class="category__card__title font-semibold text-lg ">
+      {{ category().name | titlecase }}
+    </p>
+    <p class="category__card__count text-light-text">
+      {{ category().productsCount }} Items
+    </p>
+  </div>
+</div>
