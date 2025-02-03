@@ -24,7 +24,6 @@ export class CategorySliderComponent implements OnInit, OnDestroy {
       .subscribe({
         next: (res) => {
           this.categories.set(res);
-          console.log('catergories from slider', this.categories());
         },
         error: (err) => {
           console.error('Error from slider', err);

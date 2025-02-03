@@ -1,0 +1,108 @@
+<div class="max-w-screen-xl flex items-center justify-between mx-auto p-4">
+  <div class="flex items-center space-x-4 md:hidden">
+    <button
+      type="button"
+      #toggleButton
+      class="iconinline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg"
+    >
+      <span class="sr-only">Open main menu</span>
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M21 10H7"
+          stroke="#F82BA9"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M21 6H3"
+          stroke="#F82BA9"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M21 14H3"
+          stroke="#F82BA9"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M21 18H7"
+          stroke="#F82BA9"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </button>
+  </div>
+
+  <div
+    #mobileSidebar
+    id="mobile-sidebar"
+    class="fixed top-0 left-0 bg-white hidden flex-col z-50 transition-transform"
+    tabindex="-1"
+  >
+    <div class="flex justify-between items-center p-4">
+      <a routerLink="/">
+        <img src="logos/rose-logo.png" class="h-8 img" alt="Logo" />
+      </a>
+      <button #closeButton class="text-[var(--black-color)] text-3xl">
+        &times;
+      </button>
+    </div>
+    <ul class="flex flex-col p-4 space-y-4">
+      <li>
+        <a
+          routerLink="/home"
+          routerLinkActive="active"
+          class="block py-2 px-3 text-[#160e4b] rounded hover:bg-[#feedf7] md:hover:bg-transparent md:hover:text-[#f82ba9] md:p-0 md:dark:hover:text-[#f82ba9] dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+        >
+          Home
+        </a>
+      </li>
+      <li>
+        <a
+          routerLink="/categoryall-category"
+          routerLinkActive="active"
+          class="block py-2 px-3 text-[#160e4b] rounded hover:bg-[#feedf7] md:hover:bg-transparent md:hover:text-[#f82ba9] md:p-0 md:dark:hover:text-[#f82ba9] dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+        >
+          All Category
+        </a>
+      </li>
+      <li>
+        <a
+          routerLink="/about"
+          routerLinkActive="active"
+          class="block py-2 px-3 text-[#160e4b] rounded hover:bg-[#feedf7] md:hover:bg-transparent md:hover:text-[#f82ba9] md:p-0 md:dark:hover:text-[#f82ba9] dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+        >
+          About
+        </a>
+      </li>
+      <li>
+        <a
+          routerLink="/contact"
+          routerLinkActive="active"
+          class="block py-2 px-3 text-[#160e4b] rounded hover:bg-[#feedf7] md:hover:bg-transparent md:hover:text-[#f82ba9] md:p-0 md:dark:hover:text-[#f82ba9] dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+        >
+          Contact
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Overlay -->
+  <div
+    #overlay
+    id="overlay"
+    class="hidden fixed inset-0 bg-black bg-opacity-50 z-40"
+  ></div>
+</div>
