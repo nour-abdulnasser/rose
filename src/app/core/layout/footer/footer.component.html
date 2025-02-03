@@ -1,33 +1,41 @@
-<div class="w-100 footer">
-  <div class="w-4/5 mx-auto font-medium text-base subpixel-antialiased py-8">
-    <ul
-      class="flex w-100 gap-6 font-medium flex-col md:flex-row justify-between px-5"
-    >
-      <li>
-        <a routerLink="" routerLinkActive="router-link-active">About Us</a>
-      </li>
-      <li>
-        <a routerLink="" routerLinkActive="router-link-active"
-          >Store location</a
-        >
-      </li>
-      <li>
-        <a routerLink="" routerLinkActive="router-link-active">Contact</a>
-      </li>
-      <li>
-        <a routerLink="" routerLinkActive="router-link-active">Delivery</a>
-      </li>
-      <li><a routerLink="" routerLinkActive="router-link-active">Policy</a></li>
-      <li><a routerLink="" routerLinkActive="router-link-active">FAQS</a></li>
-    </ul>
+<footer class="footer bg-cover bg-center w-full relative">
+  <!-- Overlay -->
+  <div class="footer-overlay absolute inset-0 bg-white bg-opacity-70 z-1"></div>
+
+  <!-- Footer Content -->
+  <div class="footer-content container mx-auto px-4 md:px-8 relative z-2">
+    <div class="flex flex-col items-center gap-8 text-center">
+      <!-- Navigation Links -->
+      <div class="w-full">
+        <ul class="flex flex-row justify-center items-center flex-wrap gap-4">
+          <li><a  class="hover:text-primary">About Us</a></li>
+          <li><a  class="hover:text-primary">Store Location</a></li>
+          <li><a  class="hover:text-primary">Contact</a></li>
+          <li><a routerLink="/delivery" class="hover:text-primary">Delivery</a></li>
+          <li><a routerLink="/policy" class="hover:text-primary">Policy</a></li>
+          <li><a routerLink="/FAQs" class="hover:text-primary">FAQs</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter Subscription -->
+      <div class="w-full newsletter flex flex-col items-center">
+        <h3 class="text-xl font-bold text-black mb-2">
+          Get <span class="text-primary">20%</span> Off Discount Coupon
+        </h3>
+        <p class="text-gray-500 mb-6">By subscribing to our newsletter</p>
+        <form class="w-full max-w-md relative">
+          <input
+            type="email"
+            placeholder="Enter Your Email"
+            class="w-full p-3 pl-6 pr-24 rounded-full border border-gray-300 focus:outline-none focus:border-primary"
+          />
+          <button
+            class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-primary text-white py-2 px-6 rounded-full hover:bg-primary-dark transition duration-300"
+          >
+            Subscribe →
+          </button>
+        </form>
+      </div>
+    </div>
   </div>
-  <div
-    class="w-4/5 text-2xl mx-auto flex justify-center font-medium text-base subpixel-antialiased py-8"
-  >
-    <h2>Get <span class="text-primary">20%</span> Off Discount Coupon</h2>
-  </div>
-  <div class="w-4/5 flex justify-center subscribe-container mx-auto">
-    <input type="text" class="subscribeInput w-80 px-4 py-2" />
-    <button class="subscribeButton w-32 px-4 py-2">Subscribe</button>
-  </div>
-</div>
+</footer>
