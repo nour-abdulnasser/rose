@@ -1,0 +1,36 @@
+.product-card {
+  // height: 23.175rem;
+  &__overlay {
+    transform: translateX(100%);
+    &__item {
+      width: 40px;
+      height: 40px;
+      border-radius: 100%;
+      cursor: pointer;
+    }
+  }
+  &__image {
+    &:hover .product-card__overlay {
+      transform: translateX(0%);
+
+      background-color: rgba(
+        var(--primary-color-rgb),
+        var(--card-hover-opacity)
+      );
+    }
+  }
+  &__details {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+  }
+  &__actions {
+    &__item {
+      padding: 13px;
+      border-radius: 100%;
+      cursor: pointer;
+    }
+  }
+}
