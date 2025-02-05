@@ -18,7 +18,7 @@
           <a
             routerLink="/home"
             routerLinkActive="active"
-            class="block py-2 px-3 text-[#160e4b] rounded hover:bg-[#feedf7] md:hover:bg-transparent md:hover:text-[#f82ba9] md:p-0 md:dark:hover:text-[#f82ba9] dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+            class="block py-2 px-3 text-[var(--my-secondary-color)] rounded hover:bg-[var(--light-primary-background-color)] md:hover:bg-transparent md:hover:text-[var(--primary-color)] md:p-0 md:dark:hover:text-[var(--primary-color)] dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
             aria-current="page"
             >Home</a
           >
@@ -27,7 +27,7 @@
           <a
             routerLink="/category"
             routerLinkActive="active"
-            class="block py-2 px-3 text-[#160e4b] rounded hover:bg-[#feedf7] md:hover:bg-transparent md:hover:text-[#f82ba9] md:p-0 md:dark:hover:text-[#f82ba9] dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+            class="block py-2 px-3 text-[var(--my-secondary-color)] rounded hover:bg-[var(--light-primary-background-color)] md:hover:bg-transparent md:hover:text-[var(--primary-color)] md:p-0 md:dark:hover:text-[var(--primary-color)] dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
             >All category</a
           >
         </li>
@@ -35,7 +35,7 @@
           <a
             routerLink="/about"
             routerLinkActive="active"
-            class="block py-2 px-3 text-[#160e4b] rounded hover:bg-[#feedf7] md:hover:bg-transparent md:hover:text-[#f82ba9] md:p-0 md:dark:hover:text-[#f82ba9] dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+            class="block py-2 px-3 text-[var(--my-secondary-color)] rounded hover:bg-[var(--light-primary-background-color)] md:hover:bg-transparent md:hover:text-[var(--primary-color)] md:p-0 md:dark:hover:text-[var(--primary-color)] dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
             >About</a
           >
         </li>
@@ -43,7 +43,7 @@
           <a
             routerLink="/contact"
             routerLinkActive="active"
-            class="block py-2 px-3 text-[#160e4b] rounded hover:bg-[#feedf7] md:hover:bg-transparent md:hover:text-[#f82ba9] md:p-0 md:dark:hover:text-[#f82ba9] dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+            class="block py-2 px-3 text-[var(--my-secondary-color)] rounded hover:bg-[var(--light-primary-background-color)] md:hover:bg-transparent md:hover:text-[var(--primary-color)] md:p-0 md:dark:hover:text-[var(--primary-color)] dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
             >Contact</a
           >
         </li>
@@ -59,7 +59,7 @@
         <a routerLink="/favorite" *ngIf="isLoggedIn" class="relative icon">
           <img src="/icons/heart-icon.svg" alt="" class="icon w-5 h-5" />
           <span
-            class="count-fav absolute top-[-2px] right-0 transform translate-x-1/2 -translate-y-1/2 bg-[#f82ba9] text-white text-xs rounded-full px-1.5 py-0.5"
+            class="count-fav absolute top-[-2px] right-0 transform translate-x-1/2 -translate-y-1/2 bg-[var(--primary-color)] text-white text-xs rounded-full px-1.5 py-0.5"
             >2</span
           >
         </a>
@@ -67,7 +67,7 @@
         <!-- Cart Icon -->
         <a routerLink="/cart" *ngIf="isLoggedIn" class="relative icon">
           <span
-            class="count-cart absolute transform translate-x-1/2 -translate-y-1/2 bg-[#f82ba9] text-white text-xs rounded-full px-1.5 py-0.5"
+            class="count-cart absolute transform translate-x-1/2 -translate-y-1/2 bg-[var(--primary-color)] text-white text-xs rounded-full px-1.5 py-0.5"
             >5</span
           >
           <img src="/icons/shopping-bag-icon.svg" alt="" class="icon w-5 h-5" />
@@ -78,7 +78,7 @@
         *ngIf="!isLoggedIn"
         data-modal-target="authentication-modal"
         data-modal-toggle="authentication-modal"
-        class="block button-model text-white bg-[#F82BA9] font-medium rounded-lg text-sm px-[20px] py-[8px] text-center"
+        class="block button-model text-white bg-[var(--primary-color)] font-medium rounded-lg text-sm px-5 py-2 text-center"
         type="button"
       >
         Login

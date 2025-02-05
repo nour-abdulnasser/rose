@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './features/pages/home/home.component';
 
 export const routes: Routes = [
   { 
@@ -11,16 +10,6 @@ export const routes: Routes = [
     path: 'home', 
     loadComponent: () => import('./features/pages/home/home.component')
       .then(c => c.HomeComponent)
-  },
-  { 
-    path: 'category', 
-    loadComponent: () => import('./features/pages/category/category.component')
-      .then(c => c.CategoryComponent)
-  } ,
-  { 
-    path: 'category', 
-    loadComponent: () => import('./features/pages/category/category.component')
-      .then(c => c.CategoryComponent)
   },
   { 
     path: 'about', 

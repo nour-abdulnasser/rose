@@ -1,27 +1,12 @@
-<div class="delivery-container">
-    <h1>Delivery</h1>
-    <h2>Shipments and Returns</h2>
-    <h3>Your Pack Shipment</h3>
-  
-    <p>
-      Ipsam Optio Quia Ut Sit Minima Eveniet Voluptatem Molestiae Distinctio.
-      Magnam Nulla Qui Doloremque Voluptatem Eum Dolorem Cum Expeditia. Ipsam
-      Optio Quia Ut Sit Minima Eveniet Voluptatem Molestiae Distinctio.
-      Magnam Nulla Qui Doloremque Voluptatem Eum Dolorem Cum Expeditia.
-    </p>
-  <br>
-    <p>
-      Ipsam Optio Quia Ut Sit Minima Eveniet Voluptatem Molestiae Distinctio.
-      Magnam Nulla Qui Doloremque Voluptatem Eum Dolorem Cum Expeditia. Ipsam
-      Optio Quia Ut Sit Minima Eveniet Voluptatem Molestiae Distinctio.
-      Magnam Nulla Qui Doloremque Voluptatem Eum Dolorem Cum Expeditia.
-    </p>
-    <br>
-    <p>
-      Ipsam Optio Quia Ut Sit Minima Eveniet Voluptatem Molestiae Distinctio.
-      Magnam Nulla Qui Doloremque Voluptatem Eum Dolorem Cum Expeditia. Ipsam
-      Optio Quia Ut Sit Minima Eveniet Voluptatem Molestiae Distinctio.
-      Magnam Nulla Qui Doloremque Voluptatem Eum Dolorem Cum Expeditia.
-    </p>
+<div class="delivery-container mx-20 my-0" *ngIf="deliveryData">
+  <h1 class="mb-4 font-normal text-[30px] leading-8">{{ deliveryData.title }}</h1>
+  <div  *ngFor="let section of deliveryData.sections">
+    <h2 class="mb-4 font-normal text-[26px] leading-8">{{ section.heading }}</h2>
+    <div *ngFor="let subsection of section.subsections">
+      <h3 class="mb-4 font-normal text-[26px] leading-8">{{ subsection.subheading }}</h3>
+      <p class="mb-6 rule font-normal leading-8 text-[#797979]" *ngFor="let content of subsection.content">
+        {{ content }}
+      </p>
+    </div>
   </div>
-  
+</div>
