@@ -89,3 +89,42 @@ body {
 .inter-900 {
   font-weight: 900;
 }
+
+
+@layer components {
+  .section-header-small {
+    @apply font-bold text-primary uppercase text-center my-1;
+    letter-spacing:4px ;
+    font-size: 17px;
+    // line-height: 30.6px
+
+  }
+  .section-header-main{
+    @apply font-bold text-3xl my-1;
+    width: fit-content;
+      position: relative;
+      z-index: 1;
+      &::before{
+          content: '';
+          position: absolute;
+      z-index: 2;
+          bottom: -3px;
+          height: 2px;
+          width: 30%;
+          background-color: var(--primary-color);
+      }
+      &::after{
+          content: '';
+          position: absolute;
+          left: 0px;
+          z-index: -1;
+          bottom: -3px;
+          height: 17px;
+          width: 80%;
+          background-color: var(--light-primary-background-color);
+          border-top-right-radius: 20px;
+          border-bottom-right-radius: 20px;
+      }
+  
+  }
+}

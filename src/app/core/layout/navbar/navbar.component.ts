@@ -3,10 +3,16 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
-  imports: [RouterLink,RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.scss'
+  styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent {
+  isMenuOpen = false;
 
+  
+  toggleMenu(navMenu: HTMLElement) {
+    navMenu.classList.toggle('hidden');
+    this.isMenuOpen = !this.isMenuOpen;
+  }
 }

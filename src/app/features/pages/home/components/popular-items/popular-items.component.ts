@@ -56,7 +56,6 @@ private destroy$ = new Subject<void>();
       .subscribe({
         next: (products: Product[]) => {
           this.products.set(products);
-          // console.log('All products:', this.products());
         },
         error: (error) => console.error('Error fetching prods:', error),
       });

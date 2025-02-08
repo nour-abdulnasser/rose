@@ -1,0 +1,37 @@
+/* best-seller.component.css */
+.text-section h3 {
+  letter-spacing: -1px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: #F82BA9;
+  margin-bottom: 2rem;
+}
+
+.text-section h2 {
+  letter-spacing: -0.5px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.text-section p {
+  max-width: 500px;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 767px) {
+  .slider-section {
+      padding: 0;
+      transform: none;
+      width: 100% !important;
+      position: relative;
+  }
+  
+  .container {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+  }
+}
+
+.mybut {
+  transition: all 0.3s ease;
+}
