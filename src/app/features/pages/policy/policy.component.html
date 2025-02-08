@@ -1,0 +1,7 @@
+<div class="terms-container mx-[70px] sm:my-0 my-0 p-5  font-sans text-[#333]" *ngIf="termsData">
+  <h1 class="text-2xl text-[#160E4B] text-[1.8rem] mb-5">{{ termsData.title }}</h1>
+  <div *ngFor="let rule of termsData.rules" class="rule mb-5">
+    <h2 class="text-xl text-[1.4rem] text-[#160E4B] mb-3">{{ rule.heading }}</h2>
+    <p class="text-sm leading-7 text-gray-600">{{ rule.content }}</p>
+  </div>
+</div>

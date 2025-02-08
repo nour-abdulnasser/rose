@@ -48,7 +48,6 @@ export class SliderComponent implements OnInit {
       next: (data) => {
         if (data && data.length > 0) {
           this.slider.set(data);
-          console.log('Best sellers:', data); // إضافة Log للتحقق
         } else {
           console.warn('No bestsellers found');
         }
