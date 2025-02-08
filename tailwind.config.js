@@ -39,6 +39,9 @@ module.exports = {
       aspectRatio: {
         "4-5": 4 / 5,
       },
+      spacing: {
+        "7px": "7px",
+      },
     },
   },
   plugins: [require("flowbite/plugin")],

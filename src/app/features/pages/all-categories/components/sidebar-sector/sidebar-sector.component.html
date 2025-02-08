@@ -1,0 +1,39 @@
+<div class="sidebar__sector">
+  <div class="mx-6 py-6 sector__title">
+    <h3 class="font-bold">
+      {{ sectorContent()!.title.toString() | titlecase }}
+    </h3>
+  </div>
+  <div class="mx-6 py-6 sector__options">
+    @if (sectorContent()?.title == 'price') { } @else {
+    <ul
+      class="text-sm font-medium text-gray-900 space-y-7px dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+    >
+      @for (item of sectorContent()?.content; track $index) {
+      <li
+        class="w-full flex justify-between text-light-text border-gray-200 dark:border-gray-600"
+      >
+        <div class="flex items-center">
+          <input
+            id="{{ sectorContent()?.title }}-{{ $index }}-checkbox"
+            type="checkbox"
+            value=""
+            class="w-4 h-4 text-primary bg-gray-100 border-light-text rounded-sm focus:ring-primary dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+          />
+          <label
+            for="{{ sectorContent()?.title }}-{{ $index }}-checkbox"
+            class="w-full ms-3 text-sm font-medium text-light-text dark:text-gray-300"
+            >{{ item.name }}</label
+          >
+        </div>
+        @if(item.totalItems !== undefined){
+        <div class="total-items">
+          <span>({{ item.totalItems }})</span>
+        </div>
+        }
+      </li>
+      }
+    </ul>
+    }
+  </div>
+</div>

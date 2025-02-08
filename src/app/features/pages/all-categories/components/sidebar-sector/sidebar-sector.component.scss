@@ -1,0 +1,14 @@
+.sidebar__sector {
+  .sector__title {
+    position: relative;
+    &:after {
+        position: absolute;
+      content: "";
+      width: 80%;
+      background-color: var(--light-text-color);
+      height: 1px;
+      bottom: 0;
+      left: 10%;
+    }
+  }
+}
