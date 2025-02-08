@@ -1,17 +1,30 @@
 <div class="sidebar__sector">
   <div class="mx-6 py-6 sector__title">
     <h3 class="font-bold">
-      @if (sectorContent()?.title == 'price') {
-      Price Rating
-      } @else {
+      @if (sectorContent()?.title == 'price') { Price Rating } @else {
       {{ sectorContent()!.title.toString() | titlecase }}}
     </h3>
   </div>
   <div class="mx-6 py-6 sector__options">
     @if (sectorContent()?.title == 'price') {
-    <mat-slider min="{{sectorContent()?.minPrice}}" max="{{sectorContent()?.maxPrice}}" >
-      <input value="{{sectorContent()?.minPrice}}" matSliderStartThumb />
-      <input value="{{sectorContent()?.maxPrice}}" matSliderEndThumb />
+    <span class="price-range text-base text-primary"
+      >{{ selectedMinPrice() | currency : "$" }} -
+      {{ selectedMaxPrice() | currency : "$" }}</span
+    >
+    <mat-slider
+      min="{{ sectorContent()?.minPrice }}"
+      max="{{ sectorContent()?.maxPrice }}"
+    >
+      <input
+        value="{{ sectorContent()?.minPrice }}"
+        matSliderStartThumb
+        [(ngModel)]="selectedMinPrice"
+      />
+      <input
+        value="{{ sectorContent()?.maxPrice }}"
+        matSliderEndThumb
+        [(ngModel)]="selectedMaxPrice"
+      />
     </mat-slider>
     } @else {
     <ul

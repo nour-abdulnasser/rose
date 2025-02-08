@@ -2,6 +2,7 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 html {
   @include mat.theme((
@@ -27,9 +28,12 @@ html {
     hover-state-layer-color: transparent,
     value-indicator-caret-display: 20px,
     value-indicator-opacity:1,
+    active-track-height: 6px,
+    inactive-track-height: 6px,
   ));
   .mat-mdc-slider {
-    width: 100%;
+    width: 80%;
+    margin: 0 3px;
   }
   
   .mdc-slider {
@@ -51,8 +55,6 @@ html {
   }
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-/* You can add global styles to this file, and also import other style files */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -182,5 +184,3 @@ body {
   }
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
