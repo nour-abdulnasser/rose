@@ -54,4 +54,9 @@ export class SidebarComponent {
       { name: 'Extra large' },
     ],
   };
+  prices = {
+    title: 'price',
+    minPrice: 0,
+    maxPrice: 80,
+  };
 }

@@ -1,11 +1,19 @@
 <div class="sidebar__sector">
   <div class="mx-6 py-6 sector__title">
     <h3 class="font-bold">
-      {{ sectorContent()!.title.toString() | titlecase }}
+      @if (sectorContent()?.title == 'price') {
+      Price Rating
+      } @else {
+      {{ sectorContent()!.title.toString() | titlecase }}}
     </h3>
   </div>
   <div class="mx-6 py-6 sector__options">
-    @if (sectorContent()?.title == 'price') { } @else {
+    @if (sectorContent()?.title == 'price') {
+    <mat-slider min="{{sectorContent()?.minPrice}}" max="{{sectorContent()?.maxPrice}}" >
+      <input value="{{sectorContent()?.minPrice}}" matSliderStartThumb />
+      <input value="{{sectorContent()?.maxPrice}}" matSliderEndThumb />
+    </mat-slider>
+    } @else {
     <ul
       class="text-sm font-medium text-gray-900 space-y-7px dark:bg-gray-700 dark:border-gray-600 dark:text-white"
     >

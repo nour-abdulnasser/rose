@@ -1,8 +1,9 @@
+
 .sidebar__sector {
   .sector__title {
     position: relative;
     &:after {
-        position: absolute;
+      position: absolute;
       content: "";
       width: 80%;
       background-color: var(--light-text-color);

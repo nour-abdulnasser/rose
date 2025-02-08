@@ -1,3 +1,56 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+
+html {
+  @include mat.theme((
+    color: (
+      theme-type: light,
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+    ),
+   
+    density: 0,
+  ));
+  @include mat.slider-overrides((
+    ripple-color:transparent,
+    handle-color: var(--primary-color), 
+    handle-width: 16px, 
+    handle-height: 16px, 
+    handle-shape: 100%, 
+    active-track-color: var(--primary-color), 
+    inactive-track-color: black, 
+    handle-elevation: 0px,
+    focus-state-layer-color: transparent,
+    focus-handle-color: var(--primary-color),
+    hover-state-layer-color: transparent,
+    value-indicator-caret-display: 20px,
+    value-indicator-opacity:1,
+  ));
+  .mat-mdc-slider {
+    width: 100%;
+  }
+  
+  .mdc-slider {
+    &__thumb-knob {
+      border-color: white;
+      border-width: 1px;
+      border-style: solid;
+    }
+    &__track--inactive {
+      background-color: var(--light-text-color);
+      opacity: 1;
+    }
+  }
+  .mdc-slider__thumb--focused .mdc-slider__thumb-knob {
+    border-color: white;
+      border-width: 1px;
+      border-style: solid;
+
+  }
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 /* You can add global styles to this file, and also import other style files */
 @tailwind base;
@@ -128,3 +181,6 @@ body {
   
   }
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
