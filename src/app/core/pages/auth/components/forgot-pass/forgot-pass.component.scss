@@ -1,0 +1,15 @@
+
+.header{
+font-size: 30px;
+line-height: 36px;
+width: 400;
+}
+.mybut{
+background-color: var(--primary-color);
+}
+.myinp{
+    color: black !important; 
+    &:focus{
+        background-color: white !important ;
+    }
+}

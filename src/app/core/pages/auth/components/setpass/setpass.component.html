@@ -1,0 +1,89 @@
+<!-- setpass.component.html -->
+<div class="fixed inset-0 flex items-center justify-center">
+  <div class="bg-white rounded-lg shadow-lg p-7 md:w-[31rem]">
+    <div>
+      <h1 class="text-2xl font-normal my-4 text-gray-800">Set a Password</h1>
+      <form
+        [formGroup]="resetpassForm"
+        class="space-y-4"
+        (ngSubmit)="Resetpass()"
+      >
+        <div>
+          <app-custom-input
+            formControlName="email"
+            [placheholder]="'Email address'"
+            autofocus
+            [type]="'email'"
+            [class.invalid]="
+              resetpassForm.get('email')?.invalid &&
+              resetpassForm.get('email')?.touched
+            "
+            autofocus
+          />
+
+          <div *ngIf="resetpassForm.get('email')?.touched">
+            <p
+              *ngIf="resetpassForm.get('email')?.hasError('required')"
+              class="text-red-500 text-sm mt-1"
+            >
+              Email is required
+            </p>
+            <p
+              *ngIf="resetpassForm.get('email')?.hasError('email')"
+              class="text-red-500 text-sm mt-1"
+            >
+              Please enter a valid email
+            </p>
+          </div>
+        </div>
+
+        <div class="relative">
+          <app-custom-input
+            formControlName="newPassword"
+            [placheholder]="'Create Password'"
+            autofocus
+            [type]="'password'"
+            [class.invalid]="
+              resetpassForm.get('newPassword')?.invalid &&
+              resetpassForm.get('newPassword')?.touched
+            "
+            autofocus
+          />
+
+          <div *ngIf="resetpassForm.get('newPassword')?.touched">
+            <p
+              *ngIf="resetpassForm.get('newPassword')?.hasError('required')"
+              class="text-red-500 text-sm mt-1"
+            >
+              Password is required
+            </p>
+            <p
+              *ngIf="resetpassForm.get('newPassword')?.hasError('minlength')"
+              class="text-red-500 text-sm mt-1"
+            >
+              Minimum 6 characters required
+            </p>
+            <p
+              *ngIf="resetpassForm.get('newPassword')?.hasError('pattern')"
+              class="text-red-500 text-sm mt-1"
+            >
+              Must include uppercase, lowercase, number, and special character
+            </p>
+          </div>
+        </div>
+
+        <div *ngIf="errorMessage" class="text-red-500 text-sm text-center">
+          {{ errorMessage }}
+        </div>
+
+        <button
+          type="submit"
+          class="w-full mybut px-5 py-3 text-sm font-medium text-white rounded-full bg-[#F82BA9] hover:bg-[#E61A8F] transition-all duration-200 disabled:opacity-50"
+        >
+          <span *ngIf="!isLoading">Set Password</span>
+          <span *ngIf="isLoading">Processing...</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
