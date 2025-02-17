@@ -1,0 +1,10 @@
+<input
+[placeholder]="placheholder"
+[type]="type"
+[value]="value"
+class="w-full myinp  border-none shadow-lg text-black focus:bg-white text-sm gap-2 rounded-full px-4 py-3"
+required
+autofocus
+(input)="onChange($any($event.target).value)"
+(blur)="onTouched()"
+/>

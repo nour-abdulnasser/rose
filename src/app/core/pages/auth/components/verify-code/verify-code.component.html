@@ -1,0 +1,50 @@
+<!-- component verify-code -->
+<div class="fixed inset-0 flex items-center justify-center">
+  <div class="bg-white rounded-lg shadow-lg p-7 md:w-[31rem]">
+    <div>
+      <h2 class="text-2xl font-normal my-4 text-gray-800">Verify Code</h2>
+      <form
+        [formGroup]="verify_codeForm"
+        class="space-y-4"
+        (ngSubmit)="verify_code()"
+      >
+        <div>
+          <app-custom-input
+            formControlName="resetCode"
+            [placheholder]="'Enter Verification Code'"
+            [type]="'text'"
+            autofocus
+          />
+
+          <!-- رسالة خطأ -->
+          <p
+            *ngIf="
+              verify_codeForm.get('resetCode')?.invalid &&
+              verify_codeForm.get('resetCode')?.touched
+            "
+            class="text-red-500 text-sm mt-1"
+          >
+            Please enter the verification code.
+          </p>
+        </div>
+        <div class="mt-4 resend text-left">
+          <p class="text-sm text-gray-600">
+            Didn't receive a code?
+            <button
+              class="text-sm text-[#F82BA9] hover:text-[#E61A8F] focus:outline-none"
+            >
+              Resend
+            </button>
+          </p>
+        </div>
+        <button
+          type="submit"
+          class="w-full px-5 py-3 text-sm font-medium text-white rounded-full bg-[#F82BA9] hover:bg-[#E61A8F] transition-all duration-200 disabled:opacity-50"
+        >
+          Verify Code
+        </button>
+      </form>
+    </div>
+  </div>
+  <!-- زر إعادة إرسال الرمز -->
+</div>

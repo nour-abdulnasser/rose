@@ -1,0 +1,130 @@
+<div class="fixed inset-0 flex items-center justify-center">
+    <div class="bg-white rounded-xl shadow-lg p-7 md:w-[33rem]">
+      <div class="space-y-4">
+        <h2 class="text-2xl font-normal text-gray-900">Create Account</h2>
+        <form
+          [formGroup]="registerForm"
+          class="space-y-6 items-center justify-center"
+          (ngSubmit)="Register()"
+        >
+          <div class="mt-7">
+            <app-custom-input
+              formControlName="firstName"
+              [placheholder]="'First Name'"
+              [type]="'text'"
+            ></app-custom-input>
+            <div *ngIf="registerForm.get('firstName')?.invalid && registerForm.get('firstName')?.touched" class="text-red-500 text-sm">
+              <span *ngIf="registerForm.get('firstName')?.errors?.['required']">First name is required.</span>
+              <span *ngIf="registerForm.get('firstName')?.errors?.['pattern']">Only letters are allowed.</span>
+            </div>
+          </div>
+  
+          <div class="mt-7">
+            <app-custom-input
+              formControlName="lastName"
+              [placheholder]="'Last Name'"
+              [type]="'text'"
+            ></app-custom-input>
+            <div *ngIf="registerForm.get('lastName')?.invalid && registerForm.get('lastName')?.touched" class="text-red-500 text-sm">
+              <span *ngIf="registerForm.get('lastName')?.errors?.['required']">Last name is required.</span>
+              <span *ngIf="registerForm.get('lastName')?.errors?.['pattern']">Only letters are allowed.</span>
+            </div>
+          </div>
+  
+          
+          <div class="mt-7">
+            <app-custom-input
+              formControlName="email"
+              [placheholder]="'Email'"
+              [type]="'email'"
+              ></app-custom-input>
+              <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="text-red-500 text-sm">
+              <span *ngIf="registerForm.get('email')?.errors?.['required']">Email is required.</span>
+              <span *ngIf="registerForm.get('email')?.errors?.['email']">Invalid email format.</span>
+            </div>
+          </div>
+          
+          <div class="mt-7">
+            <app-custom-input
+              formControlName="password"
+              [placheholder]="'Password'"
+              [type]="'password'"
+              ></app-custom-input>
+              <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="text-red-500 text-sm">
+                <span *ngIf="registerForm.get('password')?.errors?.['required']">Password is required.</span>
+                <span *ngIf="registerForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters.</span>
+                <span *ngIf="registerForm.get('password')?.errors?.['pattern']">Password must contain uppercase, lowercase, number, and special character.</span>
+            </div>
+          </div>
+          
+          <div class="mt-7">
+            <app-custom-input
+            formControlName="rePassword"
+            [placheholder]="'Confirm Password'"
+            [type]="'password'"
+            ></app-custom-input>
+            <div *ngIf="registerForm.get('rePassword')?.invalid && registerForm.get('rePassword')?.touched" class="text-red-500 text-sm">
+              <span *ngIf="registerForm.get('rePassword')?.errors?.['required']">Confirm Password is required.</span>
+              <span *ngIf="registerForm.get('rePassword')?.errors?.['mismatch']">Passwords do not match.</span>
+            </div>
+          </div>
+  
+          <div class="mt-7">
+            <app-custom-input
+              formControlName="phone"
+              [placheholder]="'Phone Number'"
+              [type]="'text'"
+            ></app-custom-input>
+            <div *ngIf="registerForm.get('phone')?.invalid && registerForm.get('phone')?.touched" class="text-red-500 text-sm">
+              <span *ngIf="registerForm.get('phone')?.errors?.['required']">Phone number is required.</span>
+              <span *ngIf="registerForm.get('phone')?.errors?.['pattern']">Invalid phone number format.</span>
+            </div>
+          </div>
+          <div class="mt-7">
+            <label class="block text-gray-700 text-sm font-medium mb-2"
+              >Gender</label
+            >
+            <div class="flex items-center space-x-4">
+              <label class="inline-flex items-center">
+                <input
+                  type="radio"
+                  formControlName="gender"
+                  [checked]="registerForm.get('gender')?.value === 'male'"
+                  (change)="registerForm.get('gender')?.setValue('male')"
+                  class="hover:cursor-pointer"
+                />
+                <span class="ml-2 text-gray-700">Male</span>
+              </label>
+              <label class="inline-flex items-center">
+                <input
+                  type="radio"
+                  formControlName="gender"
+                  [checked]="registerForm.get('gender')?.value === 'female'"
+                  (change)="registerForm.get('gender')?.setValue('female')"
+                  class="hover:cursor-pointer"
+                />
+                <span class="ml-2 text-gray-700">Female</span>
+              </label>
+            </div>
+          </div>
+  
+  
+          <div class="text-center text-gray-500">
+            Already have an account?
+            <a
+            (click)="goToLogin()"
+            class="text-[#F82BA9] font-medium hover:underline hover:cursor-pointer"
+          >Login</a>
+          </div>
+  
+          <button
+            type="submit"
+            class="w-full px-5 py-3 text-sm font-medium text-white rounded-full bg-[#F82BA9] disabled:opacity-50"
+          >
+            Create Account
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  

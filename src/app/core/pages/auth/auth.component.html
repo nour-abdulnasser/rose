@@ -1,0 +1,37 @@
+<!-- auth component -->
+<app-modal-form
+  (close)="closeModal()"
+  (closeModal)="closeModal()"
+  (closeAllModals)="closeAllModals()"
+  [ismodalOpen]="ismodalOpen"
+>
+  <ng-container *ngIf="activeComponent === 'login'">
+    <app-login
+      (changeComponent)="handleComponentChange($event)"
+    ></app-login>
+  </ng-container>
+
+  <ng-container *ngIf="activeComponent === 'register'">
+    <app-register
+      (changeComponent)="handleComponentChange($event)"
+    ></app-register>
+  </ng-container>
+
+  <ng-container *ngIf="activeComponent === 'forgot-pass'">
+    <app-forgot-pass
+      (changeComponent)="handleComponentChange($event)"
+    ></app-forgot-pass>
+  </ng-container>
+
+  <ng-container *ngIf="activeComponent === 'verify-code'">
+    <app-verify-code
+      (changeComponent)="handleComponentChange($event)"
+    ></app-verify-code>
+  </ng-container>
+
+  <ng-container *ngIf="activeComponent === 'setpass'">
+    <app-setpass (closeModal)="closeModal()"
+    (changeComponent)="handleComponentChange($event)"
+    ></app-setpass>
+  </ng-container>
+</app-modal-form>

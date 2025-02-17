@@ -1,0 +1,90 @@
+<!-- login page -->
+<div class="fixed inset-0 flex items-center justify-center">
+  <div class="bg-white rounded-xl shadow-lg p-7 md:w-[33rem]">
+    <div class="space-y-4">
+      <h2 class="text-2xl font-normal text-gray-900">Login To Your Account</h2>
+      <form [formGroup]="loginForm" class="space-y-6" (ngSubmit)="Login()">
+        <div class="mt-7">
+          <app-custom-input
+            formControlName="email"
+            [placheholder]="'Email'"
+            autofocus
+            [type]="'email'"
+          ></app-custom-input>
+          <div
+            *ngIf="
+              loginForm.get('email')?.invalid && loginForm.get('email')?.touched
+            "
+            class="text-red-500 text-sm mt-1"
+          >
+            <span *ngIf="loginForm.get('email')?.errors?.['required']"
+              >Email is required.</span
+            >
+            <span *ngIf="loginForm.get('email')?.errors?.['email']"
+              >Please enter a valid email address.</span
+            >
+          </div>
+        </div>
+
+        <div>
+          <app-custom-input
+            formControlName="password"
+            [placheholder]="'Password'"
+            [type]="'password'"
+          ></app-custom-input>
+          <div
+            *ngIf="
+              loginForm.get('password')?.invalid &&
+              loginForm.get('password')?.touched
+            "
+            class="text-red-500 text-sm mt-1"
+          >
+            <span *ngIf="loginForm.get('password')?.errors?.['required']"
+              >Password is required.</span
+            >
+            <span *ngIf="loginForm.get('password')?.errors?.['minlength']"
+              >Password must be at least 6 characters long.</span
+            >
+            <span *ngIf="loginForm.get('password')?.errors?.['pattern']">
+              Password must include uppercase, lowercase, number, and special
+              character.
+            </span>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between text-sm mb-7">
+          <div class="flex items-center">
+            <input
+              id="remember-me"
+              type="checkbox"
+              class="h-4 w-4 text-[#F82BA9] rounded hover:cursor-pointer"
+            />
+            <label for="remember-me" class="ml-2 text-gray-600">
+              Remind me
+            </label>
+          </div>
+          <a
+            (click)="goToForgotPass()"
+            class="text-[#F82BA9] font-medium hover:underline hover:cursor-pointer"
+          >
+            Forgot Password
+          </a>
+        </div>
+
+        <button
+          type="submit"
+          class="w-full px-5 py-3 text-sm font-medium text-white rounded-full bg-[#F82BA9] disabled:opacity-50"
+        >
+          Login
+        </button>
+
+        <p class="text-sm text-gray-600 text-center">
+          No account?
+          <a class="text-[#F82BA9] font-medium hover:underline hover:cursor-pointer" (click)="goToRegister()">
+            Create one here
+          </a>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
